@@ -17,48 +17,58 @@ export function test() {
 }
 
 async function getWeatherData() {
-	const response = await fetch(target);
-	const weatherData = response.json();
-	console.log(`response: `, response);
-	console.log('weather data: ', weatherData);
-	console.log('temp: ', weatherData.currentConditions);
+	try {
+		const response = await fetch(target);
+		const weatherData = await response.json();
+
+		console.log(weatherInfo(weatherData.currentConditions));
+	} catch (error) {
+		console.log('oof', error);
+	}
+}
+
+function weatherInfo(data) {
+	// return objects
+	return {
+		// vim macro btw
+		temp: data.temp,
+		feelslike: data.feelslike,
+		humidity: data.humidity,
+		precipprob: data.precipprob,
+		windspeed: data.windspeed,
+		winddir: data.winddir,
+		uvindex: data.uvindex,
+		conditions: data.conditions,
+		icon: data.icon,
+		sunrise: data.sunrise,
+		sunset: data.sunset,
+	}
+
 }
 
 
-
 // Weather data obj
+// currentConditions obj
+// weatherData.currentConditions.[]
 // {
-//     "datetime": "18:00:00",
-//     "datetimeEpoch": 1757934000,
 //     "temp": 82.3,
 //     "feelslike": 92.1,
 //     "humidity": 88.9,
-//     "dew": 78.7,
-//     "precip": 0.047,
 //     "precipprob": 96.8,
-//     "snow": 0,
-//     "snowdepth": 0,
-//     "preciptype": [
-//         "rain"
-//     ],
-//     "windgust": null,
 //     "windspeed": 8.1,
 //     "winddir": 220,
-//     "pressure": 1009,
-//     "visibility": 6.2,
-//     "cloudcover": 50,
-//     "solarradiation": 0,
-//     "solarenergy": 0,
 //     "uvindex": 0,
 //     "conditions": "Rain, Partially cloudy",
 //     "icon": "rain",
-//     "stations": [
-//         "VTBO"
-//     ],
-//     "source": "obs",
 //     "sunrise": "06:00:44",
-//     "sunriseEpoch": 1757977244,
 //     "sunset": "18:12:07",
-//     "sunsetEpoch": 1758021127,
-//     "moonphase": 0.8
 // }
+//
+//days obj (next 7 days)
+//weatherData.days.forEach(
+//obj => {
+//obj.date
+//obj.tempmax
+//obj.tempmin
+//obj.icon
+//})
