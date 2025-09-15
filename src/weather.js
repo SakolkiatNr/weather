@@ -1,7 +1,6 @@
+// TODO
 // receive user input
 // button to get current location
-//
-// getWeatherData
 
 
 const url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
@@ -44,26 +43,22 @@ function weatherInfo(data) {
 		sunset: data.sunset,
 	}
 
+	// {
+	//     "temp": 82.3,
+	//     "feelslike": 92.1,
+	//     "humidity": 88.9,
+	//     "precipprob": 96.8,
+	//     "windspeed": 8.1,
+	//     "winddir": 220,
+	//     "uvindex": 0,
+	//     "conditions": "Rain, Partially cloudy",
+	//     "icon": "rain",
+	//     "sunrise": "06:00:44",
+	//     "sunset": "18:12:07",
+	// }
 }
 
 
-// Weather data obj
-// currentConditions obj
-// weatherData.currentConditions.[]
-// {
-//     "temp": 82.3,
-//     "feelslike": 92.1,
-//     "humidity": 88.9,
-//     "precipprob": 96.8,
-//     "windspeed": 8.1,
-//     "winddir": 220,
-//     "uvindex": 0,
-//     "conditions": "Rain, Partially cloudy",
-//     "icon": "rain",
-//     "sunrise": "06:00:44",
-//     "sunset": "18:12:07",
-// }
-//
 //days obj (next 7 days)
 //weatherData.days.forEach(
 //obj => {
@@ -72,3 +67,20 @@ function weatherInfo(data) {
 //obj.tempmin
 //obj.icon
 //})
+
+function weatherPredictInfo() {
+
+}
+
+
+function getUserInput() {
+
+}
+
+function run() {
+	// use weather data
+	// show data on screen
+	// :
+}
+
+
