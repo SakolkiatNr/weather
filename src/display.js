@@ -30,6 +30,7 @@ function displayData(id, data, symbol) {
 
 async function updateDisplay() {
 	const data = await getWeatherData();
+	// TOADD idk 
 	// feelslike: condition.feelslike,
 	// icon: condition.icon,
 	// forecast: forecastInfo(data),
@@ -43,7 +44,7 @@ async function updateDisplay() {
 	displayData('hl-uv', data.uvindex);
 	displayData('hl-sunri', data.sunrise);
 	displayData('hl-sunse', data.sunset);
-
+	updateForecast(data.forecast);
 }
 
 // pick data -> data.forecast[i].target
@@ -52,3 +53,34 @@ async function updateDisplay() {
 // icon: day[i].icon,
 // tempmax: fahToCel(day[i].tempmax),
 // tempmin: fahToCel(day[i].tempmin),
+
+// <div class="fc-card" id="fc-d1">
+// 	<p class="fc-date"></p>
+// 	icon
+// 	<p class="fc-temp">
+// 		<span class="fc-tmp-hi">hi</span>
+
+// 		<span class="fc-tmp-lo">lo</span>
+// 	</p>
+// </div>
+
+
+function updateForecast(arr) {
+	// pick data -> data.forecast[i].target
+	for (let i = 0; i < arr.length; i++) {
+		const id = 'fc-d' + (i + 1);
+		const date = document.querySelector(`#${id} > .fc-date`);
+		const tmphi = document.querySelector(`#${id} > .fc-temp > .fc-tmp-hi`);
+		const tmplo = document.querySelector(`#${id} > .fc-temp > .fc-tmp-lo`);
+
+		date.textContent = arr[i].date;
+		tmphi.textContent = arr[i].tempmax;
+		tmplo.textContent = arr[i].tempmin;
+	}
+}
+
+
+
+
+
+
