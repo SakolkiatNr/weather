@@ -24,7 +24,7 @@ function getApiUrl() {
 function activeSearchBtn() {
 	const searchBtn = document.querySelector('#search-btn');
 	searchBtn.addEventListener('click', () => {
-		console.log('Run script');
+		getWeatherData();
 	});
 }
 
@@ -38,7 +38,8 @@ async function getWeatherData() {
 		const response = await fetch(getApiUrl());
 		const weatherData = await response.json();
 
-		console.log(weatherInfo(weatherData.currentConditions));
+		console.log(weatherInfo(weatherData));
+		return weatherInfo(weatherData);
 	} catch (error) {
 		console.log('oof', error);
 	}
@@ -48,30 +49,39 @@ function weatherInfo(data) {
 	// return objects
 	return {
 		// vim macro btw
-		temp: data.temp,
-		feelslike: data.feelslike,
-		humidity: data.humidity,
-		precipprob: data.precipprob,
-		windspeed: data.windspeed,
-		uvindex: data.uvindex,
-		conditions: data.conditions,
-		icon: data.icon,
-		sunrise: data.sunrise,
-		sunset: data.sunset,
+		temp: data.currentConditions.temp,
+		feelslike: data.currentConditions.feelslike,
+		humidity: data.currentConditions.humidity,
+		precipprob: data.currentConditions.precipprob,
+		windspeed: data.currentConditions.windspeed,
+		uvindex: data.currentConditions.uvindex,
+		conditions: data.currentConditions.conditions,
+		icon: data.currentConditions.icon,
+		sunrise: data.currentConditions.sunrise,
+		sunset: data.currentConditions.sunset,
+		forecast: forecastInfo(data),
+	}
+}
+
+function forecastInfo(data) {
+	const days = data.days;
+	// [obj1, obj2, obj3,...]
+
+	const nextSevenDay = [];
+
+	for (let i = 1; i <= 7; i++) {
+		nextSevenDay.push(
+			{
+				date: data.days[i].datetime,
+				condition: data.days[i].conditions,
+				icon: data.days[i].icon,
+				tempmax: data.days[i].tempmax,
+				tempmin: data.days[i].tempmin,
+			}
+		)
 	}
 
-	// {
-	//     "temp": 82.3,
-	//     "feelslike": 92.1,
-	//     "humidity": 88.9,
-	//     "precipprob": 96.8,
-	//     "windspeed": 8.1,
-	//     "uvindex": 0,
-	//     "conditions": "Rain, Partially cloudy",
-	//     "icon": "rain",
-	//     "sunrise": "06:00:44",
-	//     "sunset": "18:12:07",
-	// }
+	return nextSevenDay;
 }
 
 
