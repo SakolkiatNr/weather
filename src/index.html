@@ -9,7 +9,6 @@
 </head>
 
 <body>
-	<h1 class="text-3xl font-bold "> Weather</h1>
 	<form action="#">
 		<input type="text" id="location" placeholder="Search for places..." name="location" class="border-1">
 		<button type="button" id="search-btn" class="border-1">Search</button>
@@ -24,7 +23,108 @@
 		<p id="address"></p>
 	</div>
 
+	<h1 class="text-lg font-bold">Today highlight</h1>
+	<div id="today-highlights" class="flex row-auto gap-x-3">
+		<div class="hl-card">
+			<p class="hl-header">Wind Status</p>
+			<p class="hl-data-cnt">
+				<span class="hl-data">69</span>
+				<span class="hl-unit">km/h</span>
+			</p>
+		</div>
 
+		<div class="hl-card">
+			<p class="hl-header">Humidity</p>
+			<p class="hl-data-cnt">
+				<span class="hl-data">100</span>
+				<span class="hl-unit">%</span>
+			</p>
+		</div>
+
+		<div class="hl-card">
+			<p class="hl-header">UV index</p>
+			<p class="hl-data-cnt">
+				<span class="hl-data">420</span>
+				<span class="hl-unit">UV</span>
+			</p>
+		</div>
+
+		<div class="hl-card">
+			<p class="hl-header">Sunrise</p>
+			<p class="hl-data-cnt">
+				<span class="hl-data">6:00 AM</span>
+			</p>
+		</div>
+
+		<div class="hl-card">
+			<p class="hl-header">Sunset</p>
+			<p class="hl-data-cnt">
+				<span class="hl-data">18:00 AM</span>
+			</p>
+		</div>
+
+	</div>
+
+	<h1 class="text-lg font-bold">Weather forecast</h1>
+	<div id="forecasts">
+
+		<div class="fc-card" id="fc-d1">
+			<p class="fc-date"></p>
+			icon
+			<p class="fc-temp">
+				<span class="fc-tmp-hi">hi</span>
+				<span class="fc-tmp-lo">lo</span>
+			</p>
+		</div>
+
+		<div class="fc-card" id="fc-d2">
+			<p class="fc-date"></p>
+			icon
+			<p class="fc-temp">
+				<span class="fc-tmp-hi">hi</span>
+				<span class="fc-tmp-lo">lo</span>
+			</p>
+		</div>
+
+		<div class="fc-card" id="fc-d3">
+			<p class="fc-date"></p>
+			icon
+			<p class="fc-temp">
+				<span class="fc-tmp-hi">hi</span>
+				<span class="fc-tmp-lo">lo</span>
+			</p>
+		</div>
+
+
+		<div class="fc-card" id="fc-d4">
+			<p class="fc-date"></p>
+			icon
+			<p class="fc-temp">
+				<span class="fc-tmp-hi">hi</span>
+				<span class="fc-tmp-lo">lo</span>
+			</p>
+		</div>
+	</div>
+
+
+	<div class="fc-card" id="fc-d5">
+		<p class="fc-date"></p>
+		icon
+		<p class="fc-temp">
+			<span class="fc-tmp-hi">hi</span>
+			<span class="fc-tmp-lo">lo</span>
+		</p>
+	</div>
+
+
+	<div class="fc-card" id="fc-d6">
+		<p class="fc-date"></p>
+		icon
+		<p class="fc-temp">
+			<span class="fc-tmp-hi">hi</span>
+			<span class="fc-tmp-lo">lo</span>
+		</p>
+	</div>
 </body>
 
 </html>
