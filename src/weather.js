@@ -35,7 +35,7 @@ function weatherInfo(data) {
 	const condition = data.currentConditions;
 	// return objects
 	return {
-		// vim macro btw
+		address: data.address,
 		temp: condition.temp,
 		feelslike: condition.feelslike,
 		humidity: condition.humidity,
