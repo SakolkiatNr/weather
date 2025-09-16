@@ -1,4 +1,3 @@
-// TODO
 
 function getUserLocation() {
 	const searchBar = document.querySelector('#location');
@@ -20,20 +19,7 @@ function getApiUrl() {
 	return target;
 }
 
-
-function activeSearchBtn() {
-	const searchBtn = document.querySelector('#search-btn');
-	searchBtn.addEventListener('click', () => {
-		getWeatherData();
-	});
-}
-
-export function test() {
-	activeSearchBtn();
-}
-
-
-async function getWeatherData() {
+export async function getWeatherData() {
 	try {
 		const response = await fetch(getApiUrl());
 		const weatherData = await response.json();
@@ -46,50 +32,38 @@ async function getWeatherData() {
 }
 
 function weatherInfo(data) {
+	const condition = data.currentConditions;
 	// return objects
 	return {
 		// vim macro btw
-		temp: data.currentConditions.temp,
-		feelslike: data.currentConditions.feelslike,
-		humidity: data.currentConditions.humidity,
-		precipprob: data.currentConditions.precipprob,
-		windspeed: data.currentConditions.windspeed,
-		uvindex: data.currentConditions.uvindex,
-		conditions: data.currentConditions.conditions,
-		icon: data.currentConditions.icon,
-		sunrise: data.currentConditions.sunrise,
-		sunset: data.currentConditions.sunset,
+		temp: condition.temp,
+		feelslike: condition.feelslike,
+		humidity: condition.humidity,
+		precipprob: condition.precipprob,
+		windspeed: condition.windspeed,
+		uvindex: condition.uvindex,
+		conditions: condition.conditions,
+		icon: condition.icon,
+		sunrise: condition.sunrise,
+		sunset: condition.sunset,
 		forecast: forecastInfo(data),
 	}
 }
 
 function forecastInfo(data) {
-	const days = data.days;
-	// [obj1, obj2, obj3,...]
-
 	const nextSevenDay = [];
+	const day = data.days;
 
 	for (let i = 1; i <= 7; i++) {
 		nextSevenDay.push(
 			{
-				date: data.days[i].datetime,
-				condition: data.days[i].conditions,
-				icon: data.days[i].icon,
-				tempmax: data.days[i].tempmax,
-				tempmin: data.days[i].tempmin,
+				date: day[i].datetime,
+				condition: day[i].conditions,
+				icon: day[i].icon,
+				tempmax: day[i].tempmax,
+				tempmin: day[i].tempmin,
 			}
 		)
 	}
-
 	return nextSevenDay;
 }
-
-
-//days obj (next 7 days)
-//weatherData.days.forEach(
-//obj => {
-//obj.date
-//obj.tempmax
-//obj.tempmin
-//obj.icon
-//})
