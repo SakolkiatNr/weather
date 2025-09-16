@@ -36,7 +36,7 @@ function weatherInfo(data) {
 	// return objects
 	return {
 		address: data.address,
-		temp: condition.temp,
+		temp: fahToCel(condition.temp),
 		feelslike: condition.feelslike,
 		humidity: condition.humidity,
 		precipprob: condition.precipprob,
@@ -60,10 +60,15 @@ function forecastInfo(data) {
 				date: day[i].datetime,
 				condition: day[i].conditions,
 				icon: day[i].icon,
-				tempmax: day[i].tempmax,
-				tempmin: day[i].tempmin,
+				tempmax: fahToCel(day[i].tempmax),
+				tempmin: fahToCel(day[i].tempmin),
 			}
 		)
 	}
 	return nextSevenDay;
+}
+
+function fahToCel(temp) {
+	const celcius = (5 / 9 * (temp - 32));
+	return Number.parseFloat(celcius).toFixed(0);
 }
