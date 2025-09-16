@@ -1,23 +1,41 @@
 // TODO
-// receive user input
-// button to get current location
+
+function getUserLocation() {
+	const searchBar = document.querySelector('#location');
+	const location = searchBar.value;
+	searchBar.value = "";
+	return removeSpaces(location);
+}
+
+function removeSpaces(text) {
+	return text.replaceAll(' ', '');
+}
+
+function getApiUrl() {
+	const url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
+	const api = '72EU29FQ2J5GMR2YEP6QYSNEZ';
+	const location = getUserLocation();
+	const target = url + location + '/?key=' + api;
+
+	return target;
+}
 
 
-const url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
-const location = 'Chanthaburi,Thailand';
-
-// This is public api so no worries!
-const api = '72EU29FQ2J5GMR2YEP6QYSNEZ';
-const target = url + location + '/?key=' + api;
+function activeSearchBtn() {
+	const searchBtn = document.querySelector('#search-btn');
+	searchBtn.addEventListener('click', () => {
+		console.log('Run script');
+	});
+}
 
 export function test() {
-	console.log(target);
-	// getWeatherData();
+	activeSearchBtn();
 }
+
 
 async function getWeatherData() {
 	try {
-		const response = await fetch(target);
+		const response = await fetch(getApiUrl());
 		const weatherData = await response.json();
 
 		console.log(weatherInfo(weatherData.currentConditions));
@@ -65,18 +83,3 @@ function weatherInfo(data) {
 //obj.tempmin
 //obj.icon
 //})
-
-function getUserInput() {
-	const searchBar = document.querySelector('#location');
-	const location = searchBar.value;
-
-	console.log(removeSpaces(location));
-}
-
-function removeSpaces(text) {
-	return text.replaceAll(' ', '');
-}
-
-const searchBtn = document.querySelector('#search-btn');
-searchBtn.addEventListener('click', getUserInput);
-
