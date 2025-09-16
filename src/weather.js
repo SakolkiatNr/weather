@@ -12,7 +12,7 @@ const target = url + location + '/?key=' + api;
 
 export function test() {
 	console.log(target);
-	getWeatherData();
+	// getWeatherData();
 }
 
 async function getWeatherData() {
@@ -66,19 +66,17 @@ function weatherInfo(data) {
 //obj.icon
 //})
 
-function weatherPredictInfo() {
-
-}
-
-
 function getUserInput() {
+	const searchBar = document.querySelector('#location');
+	const location = searchBar.value;
 
+	console.log(removeSpaces(location));
 }
 
-function run() {
-	// use weather data
-	// show data on screen
-	// :
+function removeSpaces(text) {
+	return text.replaceAll(' ', '');
 }
 
+const searchBtn = document.querySelector('#search-btn');
+searchBtn.addEventListener('click', getUserInput);
 
