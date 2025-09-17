@@ -1,4 +1,23 @@
 @import "tailwindcss";
 
+.hl-card,
+.fc-card {
+	@apply bg-neutral-800 p-2;
+}
 
-body {}
+.hl-card,
+.fc-card {
+	@apply text-neutral-400;
+}
+
+.hl-data {
+	@apply text-xl font-medium text-white;
+}
+
+.fc-tmp-hi {
+	@apply text-white;
+}
+
+.fc-tmp-lo {
+	@apply text-neutral-400;
+}

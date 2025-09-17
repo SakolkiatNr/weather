@@ -9,18 +9,20 @@
 </head>
 
 <body>
-	<form action="#">
-		<input type="text" id="location" placeholder="Search for places..." name="location" class="border-1">
-		<button type="button" id="search-btn" class="border-1">Search</button>
-	</form>
+	<div id="left-container" class="pl-[12px]">
+		<form action="#">
+			<input type="text" id="location" placeholder="Search for places..." name="location" class="border-1">
+			<button type="button" id="search-btn" class="border-1">Search</button>
+		</form>
 
-	<div id="weather-display">
-		<img src="#" alt="">
-		<p id="today-temp"></p>
-		<p id="today-date">today...</p>
-		<p id="today-condition"></p>
-		<p id="rain-prob"></p>
-		<p id="address"></p>
+		<div id="weather-display" class="border-1 border-red-500 flex-col justify-center">
+			<img src="#" alt="">
+			<p id="today-temp" class="text-2xl font-bold">24 C</p>
+			<p id="today-date">Thu 18</p>
+			<p id="today-condition">Rain</p>
+			<p id="rain-prob">Rain %</p>
+			<p id="address">Address</p>
+		</div>
 	</div>
 
 	<h1 class="text-lg font-bold">Today highlight</h1>
