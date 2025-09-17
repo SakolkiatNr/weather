@@ -31,23 +31,33 @@ function displayData(id, data, symbol) {
 
 
 async function updateDisplay() {
-	const data = await getWeatherData();
 	// TOADD idk 
 	// feelslike: condition.feelslike,
 	// icon: condition.icon,
 	// forecast: forecastInfo(data),
+	try {
 
-	displayData('today-date', getToday());
-	displayData('today-temp', data.temp, ' °C');
-	displayData('address', data.address);
-	displayData('today-condition', data.conditions);
-	displayData('rain-prob', data.precipprob, '%');
-	displayData('hl-wind', data.windspeed);
-	displayData('hl-hum', data.humidity);
-	displayData('hl-uv', data.uvindex);
-	displayData('hl-sunri', convertToAM(data.sunrise));
-	displayData('hl-sunse', convertToAM(data.sunset));
-	updateForecast(data.forecast);
+		const data = await getWeatherData();
+		if (!data) {
+			console.warn("No weather data!");
+			return;
+		}
+		displayData('today-date', getToday());
+		displayData('today-temp', data.temp, ' °C');
+		displayData('address', data.address);
+		displayData('today-condition', data.conditions);
+		displayData('rain-prob', data.precipprob, '%');
+		displayData('hl-wind', data.windspeed);
+		displayData('hl-hum', data.humidity);
+		displayData('hl-uv', data.uvindex);
+		displayData('hl-sunri', convertToAM(data.sunrise));
+		displayData('hl-sunse', convertToAM(data.sunset));
+		updateForecast(data.forecast);
+
+	} catch (err) {
+		console.error('Fail to update Display', err);
+	}
+
 }
 
 function updateForecast(arr) {
