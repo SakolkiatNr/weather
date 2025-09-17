@@ -59,8 +59,8 @@ function updateForecast(arr) {
 		const tmplo = document.querySelector(`#${id} > .fc-temp > .fc-tmp-lo`);
 
 		date.textContent = getDay(arr[i].date);
-		tmphi.textContent = arr[i].tempmax;
-		tmplo.textContent = arr[i].tempmin;
+		tmphi.textContent = arr[i].tempmax + '°';
+		tmplo.textContent = arr[i].tempmin + '°';
 	}
 }
 
@@ -77,7 +77,3 @@ function convertToAM(time) {
 	const currentTime = parse(time, "HH:mm:ss", new Date());
 	return format(currentTime, "p");
 }
-
-
-
-
