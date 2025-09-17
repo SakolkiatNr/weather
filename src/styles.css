@@ -15,6 +15,9 @@
 	@apply mb-[12px] text-gray-300;
 }
 
+.hl-header {
+	@apply flex flex-row gap-2;
+}
 
 .hl-card,
 .fc-card {
@@ -30,6 +33,7 @@
 	@apply text-xl font-medium text-white;
 }
 
+/* Forecast data */
 .fc-tmp-hi {
 	@apply text-white;
 }

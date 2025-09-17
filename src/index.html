@@ -11,9 +11,17 @@
 <body>
 	<div id="container" class="flex flex-row">
 		<div id="left-container" class="p-[12px] h-screen">
-			<form action="#" class="flex row-auto rounded-xl px-[12px] mt-3 bg-neutral-700">
-				<input type="text" id="location" placeholder="Search for places..." name="location" class="text-sm">
-				<button type="button" id="search-btn" class="bg-neutral-700">GO</button>
+			<form action="#"
+				class="flex row-auto items-center rounded-xl px-[12px] mt-3 bg-neutral-700 text-neutral-400">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+					stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+					class="feather feather-search mr-[6px]">
+					<circle cx="11" cy="11" r="8" />
+					<line x1="21" y1="21" x2="16.65" y2="16.65" />
+				</svg>
+				<input type="text" id="location" placeholder="Search for places..." name="location"
+					class="text-md text-white">
+				<button type="button" id="search-btn" class="bg-neutral-700"></button>
 			</form>
 
 			<div id="weather-display" class="flex-col justify-center ">
@@ -42,7 +50,15 @@
 				<h1 id="hl-header" class="font-bold">Today's highlight</h1>
 				<div id="today-highlights" class="flex row-auto gap-x-3 mb-[24px]">
 					<div class="hl-card">
-						<p class="hl-header">Wind Status</p>
+						<div class="hl-header">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="feather feather-wind">
+								<path
+									d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+							</svg>
+							Gust
+						</div>
 						<p class="hl-data-cnt">
 							<span class="hl-data" id="hl-wind"></span>
 							<span class="hl-unit">km/h</span>
@@ -50,7 +66,14 @@
 					</div>
 
 					<div class="hl-card">
-						<p class="hl-header">Humidity</p>
+						<p class="hl-header">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="feather feather-droplet">
+								<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+							</svg>
+							<span>Humidity</span>
+						</p>
 						<p class="hl-data-cnt">
 							<span class="hl-data" id="hl-hum"></span>
 							<span class="hl-unit">%</span>
@@ -58,10 +81,19 @@
 					</div>
 
 					<div class="hl-card">
-						<p class="hl-header">UV index</p>
+						<p class="hl-header">
+
+							<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 -960 960 960"
+								fill="currentColor" fill="none" stroke="currentColor" stroke-width="1"
+								stroke-linecap="round" stroke-linejoin="round">
+								<path
+									d="M80-680v-120h80v120H80Zm0 520v-120h80v120H80Zm210-433-57-57 85-85 57 57-85 85Zm28 368-85-85 57-57 85 85-57 57Zm2-215v-80h240l-72-96 64-48 120 160q15 20 4 42t-36 22H320Zm500 240q-25 0-42.5-17.5T760-260v-440q0-25 17.5-42.5T820-760q25 0 42.5 17.5T880-700v440q0 25-17.5 42.5T820-200ZM80-320v-80q33 0 56.5-23.5T160-480q0-33-23.5-56.5T80-560v-80q66 0 113 47t47 113q0 66-47 113T80-320Z" />
+							</svg>
+							UV index
+						</p>
 						<p class="hl-data-cnt">
 							<span class="hl-data" id="hl-uv"></span>
-							<span class="hl-unit">UV</span>
+							<span class="hl-unit"></span>
 						</p>
 					</div>
 
