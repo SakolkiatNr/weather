@@ -13,10 +13,21 @@ import { format, parse } from "date-fns";
 
 function activeSearchBtn() {
 	const searchBtn = document.querySelector('#search-btn');
+	const input = document.querySelector('#location');
+
 	searchBtn.addEventListener('click', () => {
 		updateDisplay();
-		getToday();
 	});
+
+	input.addEventListener('keydown', (event) => {
+		const keyName = event.key;
+
+		if (keyName === "Enter") {
+			event.preventDefault();
+			updateDisplay();
+		}
+	});
+
 }
 
 export function test() {
