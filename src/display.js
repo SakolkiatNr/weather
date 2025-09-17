@@ -9,11 +9,13 @@
 // display data on screen
 //
 import { getWeatherData } from "./weather";
+import { format } from "date-fns";
 
 function activeSearchBtn() {
 	const searchBtn = document.querySelector('#search-btn');
 	searchBtn.addEventListener('click', () => {
 		updateDisplay();
+		getToday();
 	});
 }
 
@@ -35,6 +37,7 @@ async function updateDisplay() {
 	// icon: condition.icon,
 	// forecast: forecastInfo(data),
 
+	displayData('today-date', getToday());
 	displayData('today-temp', data.temp, ' °C');
 	displayData('address', data.address);
 	displayData('today-condition', data.conditions);
@@ -46,24 +49,6 @@ async function updateDisplay() {
 	displayData('hl-sunse', data.sunset);
 	updateForecast(data.forecast);
 }
-
-// pick data -> data.forecast[i].target
-// date: day[i].datetime,
-// condition: day[i].conditions,
-// icon: day[i].icon,
-// tempmax: fahToCel(day[i].tempmax),
-// tempmin: fahToCel(day[i].tempmin),
-
-// <div class="fc-card" id="fc-d1">
-// 	<p class="fc-date"></p>
-// 	icon
-// 	<p class="fc-temp">
-// 		<span class="fc-tmp-hi">hi</span>
-
-// 		<span class="fc-tmp-lo">lo</span>
-// 	</p>
-// </div>
-
 
 function updateForecast(arr) {
 	// pick data -> data.forecast[i].target
@@ -79,7 +64,10 @@ function updateForecast(arr) {
 	}
 }
 
-
+function getToday() {
+	const date = format(new Date(), "PP");
+	return date;
+}
 
 
 
