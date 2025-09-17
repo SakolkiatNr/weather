@@ -9,7 +9,7 @@
 // display data on screen
 //
 import { getWeatherData } from "./weather";
-import { format } from "date-fns";
+import { format, parse } from "date-fns";
 
 function activeSearchBtn() {
 	const searchBtn = document.querySelector('#search-btn');
@@ -45,8 +45,8 @@ async function updateDisplay() {
 	displayData('hl-wind', data.windspeed);
 	displayData('hl-hum', data.humidity);
 	displayData('hl-uv', data.uvindex);
-	displayData('hl-sunri', data.sunrise);
-	displayData('hl-sunse', data.sunset);
+	displayData('hl-sunri', convertToAM(data.sunrise));
+	displayData('hl-sunse', convertToAM(data.sunset));
 	updateForecast(data.forecast);
 }
 
@@ -71,6 +71,11 @@ function getToday() {
 
 function getDay(date) {
 	return format(date, "ccc");
+}
+
+function convertToAM(time) {
+	const currentTime = parse(time, "HH:mm:ss", new Date());
+	return format(currentTime, "p");
 }
 
 
