@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+#container {
+	@apply bg-neutral-800;
+}
+
+#left-container {
+	@apply bg-neutral-800 text-white;
+}
+
 .hl-card,
 .fc-card {
-	@apply bg-neutral-800 p-2;
+	@apply bg-neutral-700 p-2 flex-1 rounded-md;
 }
 
 .hl-card,
