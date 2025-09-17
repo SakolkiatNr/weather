@@ -8,6 +8,14 @@
 	@apply bg-neutral-800 text-white;
 }
 
+
+/* Content section */
+#hl-header,
+#fc-header {
+	@apply mb-[12px] text-gray-300;
+}
+
+
 .hl-card,
 .fc-card {
 	@apply bg-neutral-700 p-2 flex-1 rounded-md;

@@ -54,7 +54,7 @@ async function updateDisplay() {
 			return;
 		}
 		displayData('today-date', getToday());
-		displayData('today-temp', data.temp, ' °C');
+		displayData('today-temp', data.temp);
 		displayData('address', data.address);
 		displayData('today-condition', data.conditions);
 		displayData('rain-prob', data.precipprob, '%');

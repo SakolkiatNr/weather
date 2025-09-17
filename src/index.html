@@ -10,7 +10,7 @@
 
 <body>
 	<div id="container" class="flex flex-row">
-		<div id="left-container" class="pl-[12px] h-screen">
+		<div id="left-container" class="p-[12px] h-screen">
 			<form action="#" class="flex row-auto rounded-xl px-[12px] mt-3 bg-neutral-700">
 				<input type="text" id="location" placeholder="Search for places..." name="location" class="text-sm">
 				<button type="button" id="search-btn" class="bg-neutral-700">GO</button>
@@ -18,18 +18,28 @@
 
 			<div id="weather-display" class="flex-col justify-center ">
 				<img src="#" alt="">
-				<p id="today-temp" class="text-xl font-bold">C</p>
-				<p id="today-date">Thu 18</p>
-				<p id="today-condition">Rain</p>
-				<p id="rain-prob">Rain %</p>
+				<p class="mb-[6px] mt-[12px]">
+					<span id="today-temp" class="text-4xl font-bold"></span>
+					<span>°C</span>
+				</p>
+
 				<p id="address">Address</p>
+				<p id="today-date" class="mb-[12px]">Thu 18</p>
+
+				<div class="border-1 border-neutral-700 mb-[12px]"></div>
+				<p id="today-condition">cond</p>
+				<p>
+					<span>Rain - </span>
+					<span id="rain-prob"></span>
+				</p>
+
 			</div>
 		</div>
 
 		<div id="right-cnt" class="border-1 w-full p-3">
 
 			<div id="highlight-cnt">
-				<h1 class="font-bold text-white">Today's highlight</h1>
+				<h1 id="hl-header" class="font-bold">Today's highlight</h1>
 				<div id="today-highlights" class="flex row-auto gap-x-3 mb-[24px]">
 					<div class="hl-card">
 						<p class="hl-header">Wind Status</p>
@@ -74,7 +84,7 @@
 
 			<div id="forecast-cnt">
 
-				<h1 class="font-bold text-white">Weather forecast</h1>
+				<h1 id="fc-header" class="font-bold ">Weather forecast</h1>
 				<div id="forecasts" class="flex row-auto gap-3">
 
 					<div class="fc-card" id="fc-d1">
