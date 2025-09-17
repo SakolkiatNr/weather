@@ -58,7 +58,7 @@ function updateForecast(arr) {
 		const tmphi = document.querySelector(`#${id} > .fc-temp > .fc-tmp-hi`);
 		const tmplo = document.querySelector(`#${id} > .fc-temp > .fc-tmp-lo`);
 
-		date.textContent = arr[i].date;
+		date.textContent = getDay(arr[i].date);
 		tmphi.textContent = arr[i].tempmax;
 		tmplo.textContent = arr[i].tempmin;
 	}
@@ -67,6 +67,10 @@ function updateForecast(arr) {
 function getToday() {
 	const date = format(new Date(), "PP");
 	return date;
+}
+
+function getDay(date) {
+	return format(date, "ccc");
 }
 
 
