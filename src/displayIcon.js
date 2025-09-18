@@ -3,13 +3,20 @@
 // 
 
 
+export function iconUrl(iconName) {
+	if (!iconName) return;
+	let name = iconName;
 
+	// grouping icon 
+	if (iconName === "thunder-showers-day" ||
+		iconName === "thunder-showers-night") {
+		name = "thunder-rain";
+	}
+	if (iconName === "snow-showers-night" ||
+		iconName === "snow-showers-day") {
+		name = "snow";
 
-function iconUrl(iconName) {
-	const src = "./assets/SVG/icons/" + iconName + ".svg";
+	}
+	const src = "./assets/SVG/icons/" + name + ".svg";
 	return src;
-}
-
-function updateIcon() {
-
 }
