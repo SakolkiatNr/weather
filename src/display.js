@@ -64,6 +64,7 @@ async function updateDisplay() {
 		displayData('hl-sunri', convertToAM(data.sunrise));
 		displayData('hl-sunse', convertToAM(data.sunset));
 		updateForecast(data.forecast);
+		console.log(`icon: ${data.icon}`);
 
 	} catch (err) {
 		console.error('Fail to update Display', err);
