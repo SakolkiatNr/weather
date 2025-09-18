@@ -29,6 +29,14 @@
 	@apply text-neutral-400;
 }
 
+.hl-card {
+	@apply min-w-[170px];
+}
+
+.fc-card {
+	@apply flex flex-col items-center min-w-[150px];
+}
+
 .hl-data {
 	@apply text-xl font-medium text-white;
 }
