@@ -216,8 +216,14 @@
   .mb-\[24px\] {
     margin-bottom: 24px;
   }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
+  }
+  .hidden {
+    display: none;
   }
   .h-\[48px\] {
     height: 48px;

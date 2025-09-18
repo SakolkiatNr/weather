@@ -1,13 +1,3 @@
-// input address
-// get api data/
-// loading animation
-// display data on screen/
-// 
-// if search again
-// remove content
-// loading screen
-// display data on screen
-//
 import { getWeatherData } from "./weather";
 import { format, parse } from "date-fns";
 import { updateIcon } from "./displayIcon";
@@ -15,9 +5,11 @@ import { updateIcon } from "./displayIcon";
 function activeSearchBtn() {
 	const searchBtn = document.querySelector('#search-btn');
 	const input = document.querySelector('#location');
-
+	hidestuff();
 	searchBtn.addEventListener('click', () => {
 		updateDisplay();
+		showstuffs();
+
 	});
 
 	input.addEventListener('keydown', (event) => {
@@ -26,12 +18,29 @@ function activeSearchBtn() {
 		if (keyName === "Enter") {
 			event.preventDefault();
 			updateDisplay();
+			showstuffs();
 		}
 	});
 
 }
 
-export function test() {
+function hidestuff() {
+	const leftCnt = document.getElementById('weather-display');
+	const rightCnt = document.getElementById('right-cnt');
+
+	leftCnt.style.display = 'none';
+	rightCnt.style.display = 'none';
+}
+
+function showstuffs() {
+	const leftCnt = document.getElementById('weather-display');
+	const rightCnt = document.getElementById('right-cnt');
+
+	leftCnt.style.display = 'block';
+	rightCnt.style.display = 'block';
+}
+
+export function run() {
 	activeSearchBtn();
 }
 

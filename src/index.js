@@ -1,5 +1,5 @@
 import "./styles.css";
 import "./output.css";
-import { test } from "./display";
+import { run } from "./display";
 
-test();
+run();
