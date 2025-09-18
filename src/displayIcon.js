@@ -2,8 +2,7 @@
 // get svg assets direction
 // 
 
-
-export function iconUrl(iconName) {
+function icon(iconName) {
 	if (!iconName) return;
 	let name = iconName;
 
@@ -17,6 +16,13 @@ export function iconUrl(iconName) {
 		name = "snow";
 
 	}
-	const src = "./assets/SVG/icons/" + name + ".svg";
-	return src;
+	return name;
+}
+
+export async function updateIcon(id, iconName) {
+	const img = document.getElementById(icon);
+
+	import(`./assets/SVG/icons/${icon(iconName)}.svg`).then((svg) => {
+		img.src = svg.default;
+	});
 }

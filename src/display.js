@@ -10,7 +10,7 @@
 //
 import { getWeatherData } from "./weather";
 import { format, parse } from "date-fns";
-import { iconUrl } from "./displayIcon";
+import { updateIcon } from "./displayIcon";
 
 function activeSearchBtn() {
 	const searchBtn = document.querySelector('#search-btn');
@@ -66,8 +66,7 @@ async function updateDisplay() {
 		displayData('hl-sunse', convertToAM(data.sunset));
 		updateForecast(data.forecast);
 
-		console.log(`icon: ${data.icon}`);
-		console.log(`url: ${iconUrl('snow-showers-night')}`);
+		updateIcon(data.icon);
 
 	} catch (err) {
 		console.error('Fail to update Display', err);
