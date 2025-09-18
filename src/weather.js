@@ -12,6 +12,7 @@ function removeSpaces(text) {
 
 function getApiUrl() {
 	const url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
+	// I know it shouldn't be here, but it's public api, so no worries!
 	const api = '72EU29FQ2J5GMR2YEP6QYSNEZ';
 	const location = getUserLocation();
 	const target = url + location + '/?key=' + api;
