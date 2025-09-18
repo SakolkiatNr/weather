@@ -20,7 +20,7 @@ function icon(iconName) {
 }
 
 export async function updateIcon(id, iconName) {
-	const img = document.getElementById(icon);
+	const img = document.getElementById(id);
 
 	import(`./assets/SVG/icons/${icon(iconName)}.svg`).then((svg) => {
 		img.src = svg.default;

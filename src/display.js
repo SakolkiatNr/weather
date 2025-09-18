@@ -66,7 +66,7 @@ async function updateDisplay() {
 		displayData('hl-sunse', convertToAM(data.sunset));
 		updateForecast(data.forecast);
 
-		updateIcon(data.icon);
+		updateIcon('today-icon', data.icon);
 
 	} catch (err) {
 		console.error('Fail to update Display', err);
@@ -81,10 +81,13 @@ function updateForecast(arr) {
 		const date = document.querySelector(`#${id} > .fc-date`);
 		const tmphi = document.querySelector(`#${id} > .fc-temp > .fc-tmp-hi`);
 		const tmplo = document.querySelector(`#${id} > .fc-temp > .fc-tmp-lo`);
+		const iconId = `fc-icon-${i + 1}`;
+		console.log('fc-id', iconId);
 
 		date.textContent = getDay(arr[i].date);
 		tmphi.textContent = arr[i].tempmax + '°';
 		tmplo.textContent = arr[i].tempmin + '°';
+		updateIcon(iconId, arr[i].icon);
 	}
 }
 
