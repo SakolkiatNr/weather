@@ -52,10 +52,6 @@ function displayData(id, data, symbol) {
 
 
 async function updateDisplay() {
-	// TOADD idk 
-	// feelslike: condition.feelslike,
-	// icon: condition.icon,
-	// forecast: forecastInfo(data),
 	try {
 
 		const data = await getWeatherData();
@@ -91,7 +87,6 @@ function updateForecast(arr) {
 		const tmphi = document.querySelector(`#${id} > .fc-temp > .fc-tmp-hi`);
 		const tmplo = document.querySelector(`#${id} > .fc-temp > .fc-tmp-lo`);
 		const iconId = `fc-icon-${i + 1}`;
-		console.log('fc-id', iconId);
 
 		date.textContent = getDay(arr[i].date);
 		tmphi.textContent = arr[i].tempmax + '°';
