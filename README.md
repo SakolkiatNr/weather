@@ -1,7 +1,7 @@
 # weather
 
 A weather app that fetches real-time and forecast data
-![./preview/preview.png]()
+![](./preview/preview.pg)
 
 # What I learned
 - How to fetch and display data from APIs
